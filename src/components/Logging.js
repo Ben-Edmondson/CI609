@@ -11,9 +11,7 @@ function Logging() {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center p-4">
         <MoodForm selectedOption={selectedOption} onOptionChange={handleOptionChange} />
-      </div>
     </div>
   );
 }

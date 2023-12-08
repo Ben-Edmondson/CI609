@@ -1,4 +1,3 @@
-// DayData.js
 import React from 'react';
 
 function DayData({ date, day, mood, temperature, humidity, airQuality, precipitation, message }) {

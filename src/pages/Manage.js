@@ -3,11 +3,12 @@ import React from 'react';
 import TakeMeHome from '../components/TakeMeHome';
 import PageWrapper from '../components/PageWrapper';
 import WeeklyCalendar from '../components/Calendar';
+import Header from '../components/Header';
 
 function Manage() {
     return (
         <div className="text-center w-full">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Mind: Mental Health Logger</h2>
+            <Header />
             <WeeklyCalendar />
             <TakeMeHome />
         </div>

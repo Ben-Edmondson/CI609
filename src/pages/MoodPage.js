@@ -3,6 +3,7 @@ import React from 'react';
 import DayData from '../components/DayData';
 import TakeMeHome from '../components/TakeMeHome';
 import Header from '../components/Header';
+import PageWrapper from '../components/PageWrapper';
 
 function DayPage() {
   const dayData = {
@@ -25,4 +26,4 @@ function DayPage() {
   );
 }
 
-export default DayPage;
+export default PageWrapper(DayPage);
