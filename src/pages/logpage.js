@@ -1,6 +1,9 @@
+// LogPage.js
 import React, { useState } from 'react';
 import TakeMeHome from '../components/TakeMeHome';
-import PageWrapper from '../components/PageWrapper'
+import PageWrapper from '../components/PageWrapper';
+import Logging from '../components/Logging';
+import Header from '../components/Header';
 
 function LogPage() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -16,25 +19,14 @@ function LogPage() {
   };
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center p-4">
-        <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Select an Option</h2>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900">
+        <Header />
         
-        <div className="space-y-4">
-          {options.map((option) => (
-            <button
-              key={option.id}
-              onClick={() => handleOptionClick(option.id)}
-              className={`px-4 py-2 rounded-md text-white font-semibold ${selectedOption === option.id ? 'bg-blue-500' : 'bg-gray-500'}`}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
-
+        <Logging/>
+        
         <TakeMeHome />
       </div>
-    </div>
+   
   );
 }
 
