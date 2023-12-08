@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/home';
+import LogPage from './pages/logpage';
+import Manage from './pages/Manage';
+import FAQ from './pages/FAQ';
+import Error from './pages/Error';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import DayPage from './pages/MoodPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+    <Route path='/' element={<Home />}/>
+    <Route path="/logpage" element={<LogPage />} />
+    <Route path="/Manage" element={<Manage />} />
+    <Route path="/FAQ" element={<FAQ />} />
+    <Route path='/Day' element={<DayPage />} />
+    <Route path="/*" element = {<Error />} />
+    </Routes>
   );
 }
 
