@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function WeeklyCalendar() {
   const [moodData, setMoodData] = useState([]);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const storedMoodData = localStorage.getItem('moodEntries');
@@ -11,7 +13,8 @@ function WeeklyCalendar() {
   }, []); 
 
   const handleArrowClick = (day) => {
-    console.log(`Arrow clicked for ${day}`);
+    const selectedDate = day.date;
+    navigate(`/day/${selectedDate}`); 
   };
 
   return (
@@ -35,7 +38,7 @@ function WeeklyCalendar() {
                     <span className="w-1/2 sm:w-auto">Precipitation: {data.precipitation}</span>
                     <div className="w-1/2 sm:w-auto flex justify-end">
                       <button
-                        onClick={() => handleArrowClick(data.day)}
+                        onClick={() => handleArrowClick(data)}
                         className="text-white text-2xl">
                         ➔
                       </button>
