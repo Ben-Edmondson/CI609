@@ -1,9 +1,17 @@
 const moodEntries = JSON.parse(localStorage.getItem('moodEntries')) || [];
 const daysLogged = moodEntries.length;
 
+const currentDate = new Date();
+
+const dayOfWeek = currentDate.getDay();
+
+const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+const dayName = daysOfWeek[dayOfWeek];
+
 const stats = [
     { name: 'Days Logged', value: daysLogged },
-    { name: 'Day of the Week', value: 'Wednesday' },
+    { name: 'Day of the Week', value: dayName },
     { name: 'Weather', value: 'Sunny'}
   
   ]
