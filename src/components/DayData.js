@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DayData({ date, day, mood, temperature, humidity, airQuality, precipitation, message }) {
+function DayData({ date, day, mood, temperature, humidity, airQuality, precipitation, reflection = "No Value" }) {
   return (
     <div className="bg-gray-700 shadow rounded-lg p-6 my-4 text-white w-full">
       <div className="text-2xl font-bold mb-6">{date} - {day}</div>
@@ -27,7 +27,7 @@ function DayData({ date, day, mood, temperature, humidity, airQuality, precipita
         </div>
         <div className="data-container bg-gray-800 p-4 rounded-lg">
           <div className="text-xl font-semibold mt-6">Message:</div>
-          <div className="data-value">{message}</div>
+          <div className="data-value">{reflection}</div>
         </div>
       </div>
     </div>

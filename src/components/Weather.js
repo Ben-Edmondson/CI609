@@ -1,5 +1,8 @@
+const moodEntries = JSON.parse(localStorage.getItem('moodEntries')) || [];
+const daysLogged = moodEntries.length;
+
 const stats = [
-    { name: 'Days Logged', value: '12' },
+    { name: 'Days Logged', value: daysLogged },
     { name: 'Day of the Week', value: 'Wednesday' },
     { name: 'Weather', value: 'Sunny'}
   
