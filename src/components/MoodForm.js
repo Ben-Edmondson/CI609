@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import saveMoodData from '../utilities/SaveMoodData'
 
 function MoodForm({ selectedOption, onOptionChange }) {
   const [reflection, setReflection] = useState('');
@@ -15,15 +16,28 @@ function MoodForm({ selectedOption, onOptionChange }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // You can now access the selected mood (selectedOption) and reflection here
-    console.log('Selected Mood:', selectedOption);
-    console.log('Reflection:', reflection);
-
-    // Perform any further actions here, e.g., API requests or state updates
+  
+    const currentDate = new Date().toLocaleDateString();
+    const currentTime = new Date().toLocaleTimeString();
+    const temperature = "72°F"; // Replace with actual temperature data
+    const humidity = "50%"; // Replace with actual humidity data
+    const airQuality = "Good"; // Replace with actual air quality data
+    const precipitation = "0.00 in"; // Replace with actual precipitation data
+  
+    // Save all the data to localStorage
+    saveMoodData(
+      selectedOption,
+      reflection,
+      currentDate,
+      currentTime,
+      temperature,
+      humidity,
+      airQuality,
+      precipitation
+    );
+  
+    // You can also clear the form fields here
     onOptionChange(null); // Clear the selected mood
-
-    // Clear the reflection input field
     setReflection('');
   };
 
