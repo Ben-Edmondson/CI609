@@ -21,7 +21,7 @@ function LogPage() {
     <div className="min-h-screen bg-gray-900">
       <Header />
       <div className="flex flex-col items-center justify-center">
-        <div className="mt-8 mb-8"> {/* Add margin-top to create a gap */}
+        <div className="mt-8 mb-8"> 
           <Logging />
         </div>
         <TakeMeHome />

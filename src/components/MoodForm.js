@@ -36,8 +36,7 @@ function MoodForm({ selectedOption, onOptionChange }) {
       precipitation
     );
   
-    // You can also clear the form fields here
-    onOptionChange(null); // Clear the selected mood
+    onOptionChange(null); 
     setReflection('');
   };
 

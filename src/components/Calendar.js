@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 function WeeklyCalendar() {
-  // State to store mood data
   const [moodData, setMoodData] = useState([]);
 
-  // Function to fetch and set mood data from localStorage
   useEffect(() => {
     const storedMoodData = localStorage.getItem('moodEntries');
     if (storedMoodData) {
       setMoodData(JSON.parse(storedMoodData));
     }
-  }, []); // Run this effect once on component mount
+  }, []); 
 
   const handleArrowClick = (day) => {
     console.log(`Arrow clicked for ${day}`);

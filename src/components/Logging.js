@@ -1,4 +1,3 @@
-// Logging.js
 import React, { useState } from 'react';
 import MoodForm from './MoodForm';
 

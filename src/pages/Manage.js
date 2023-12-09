@@ -1,4 +1,3 @@
-// Manage.js or any other page component
 import React from 'react';
 import TakeMeHome from '../components/TakeMeHome';
 import PageWrapper from '../components/PageWrapper';
