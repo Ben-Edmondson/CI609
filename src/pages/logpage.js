@@ -1,4 +1,3 @@
-// LogPage.js
 import React, { useState } from 'react';
 import TakeMeHome from '../components/TakeMeHome';
 import PageWrapper from '../components/PageWrapper';
@@ -19,14 +18,15 @@ function LogPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900">
-        <Header />
-        <div className="mb-8">
-        <Logging/>
+    <div className="min-h-screen bg-gray-900">
+      <Header />
+      <div className="flex flex-col items-center justify-center">
+        <div className="mt-8 mb-8"> {/* Add margin-top to create a gap */}
+          <Logging />
         </div>
         <TakeMeHome />
       </div>
-   
+    </div>
   );
 }
 

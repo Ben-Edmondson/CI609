@@ -34,7 +34,7 @@ function MoodForm({ selectedOption, onOptionChange }) {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="mb-4 flex flex-col">
             <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-40">Select your mood:</label>
+              <label className="text-white text-lg font-semibold w-60">Select your mood:</label>
               <select
                 value={selectedOption || ''}
                 onChange={(e) => onOptionChange(e.target.value)}
@@ -49,18 +49,17 @@ function MoodForm({ selectedOption, onOptionChange }) {
           </div>
           <div className="mb-4 flex flex-col">
             <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-40">Reflection:</label>
+              <label className="text-white text-lg font-semibold w-60">Reflection:</label>
               <textarea
                 value={reflection}
                 onChange={handleReflectionChange}
-                className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300 resize-none"
-                rows="4"
+                className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300 resize-none h-40" // Adjust the height here
               ></textarea>
             </div>
           </div>
           <div className="mb-4 flex flex-col">
             <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-40">Date:</label>
+              <label className="text-white text-lg font-semibold w-60">Date:</label>
               <input
                 type="text"
                 value={currentDate.toLocaleDateString()}
@@ -71,7 +70,7 @@ function MoodForm({ selectedOption, onOptionChange }) {
           </div>
           <div className="mb-4 flex flex-col">
             <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-40">Time:</label>
+              <label className="text-white text-lg font-semibold w-60">Time:</label>
               <input
                 type="text"
                 value={currentTime}
@@ -82,7 +81,7 @@ function MoodForm({ selectedOption, onOptionChange }) {
           </div>
           <div className="mb-4 flex flex-col">
             <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-40">Temperature:</label>
+              <label className="text-white text-lg font-semibold w-60">Temperature:</label>
               <input
                 type="text"
                 value={temperature}
@@ -93,7 +92,7 @@ function MoodForm({ selectedOption, onOptionChange }) {
           </div>
           <div className="mb-4 flex flex-col">
             <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-40">Humidity:</label>
+              <label className="text-white text-lg font-semibold w-60">Humidity:</label>
               <input
                 type="text"
                 value={humidity}
@@ -104,7 +103,7 @@ function MoodForm({ selectedOption, onOptionChange }) {
           </div>
           <div className="mb-4 flex flex-col">
             <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-40">Air Quality:</label>
+              <label className="text-white text-lg font-semibold w-60">Air Quality:</label>
               <input
                 type="text"
                 value={airQuality}
@@ -115,7 +114,7 @@ function MoodForm({ selectedOption, onOptionChange }) {
           </div>
           <div className="mb-4 flex flex-col">
             <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-40">Precipitation:</label>
+              <label className="text-white text-lg font-semibold w-60">Precipitation:</label>
               <input
                 type="text"
                 value={precipitation}
