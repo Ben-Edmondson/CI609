@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 const links = [
   { name: 'Log a Mood', to: '/logpage' },
   { name: 'Manage', to: '/Manage' },
-  { name: 'FAQ', to: '/FAQ' },
 ];
 
 function Navigation() {

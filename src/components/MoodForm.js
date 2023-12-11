@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import saveMoodData from '../utilities/SaveMoodData'
+import { useNavigate } from 'react-router-dom';
 
 function MoodForm({ selectedOption, onOptionChange }) {
   const [reflection, setReflection] = useState('');
@@ -13,6 +14,8 @@ function MoodForm({ selectedOption, onOptionChange }) {
   const handleReflectionChange = (e) => {
     setReflection(e.target.value);
   };
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +41,8 @@ function MoodForm({ selectedOption, onOptionChange }) {
   
     onOptionChange(null); 
     setReflection('');
+
+    navigate('/manage');
   };
 
   return (
