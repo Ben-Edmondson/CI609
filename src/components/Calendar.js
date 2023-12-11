@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { decryptData } from '../utilities/EncryptAndDecrypt';
 
 function WeeklyCalendar() {
   const [moodData, setMoodData] = useState([]);
@@ -8,8 +9,9 @@ function WeeklyCalendar() {
   useEffect(() => {
     const storedMoodData = localStorage.getItem('moodEntries');
     if (storedMoodData) {
-      const parsedMoodData = JSON.parse(storedMoodData);
-      const sortedMoodData = parsedMoodData.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const encryptedMoodData = JSON.parse(storedMoodData);
+      const decryptedMoodData = encryptedMoodData.map((entry) => decryptData(entry)); // Decrypt each entry
+      const sortedMoodData = decryptedMoodData.sort((a, b) => new Date(b.date) - new Date(a.date));
       setMoodData(sortedMoodData);
     }
   }, []);

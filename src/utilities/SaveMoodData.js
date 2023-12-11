@@ -1,4 +1,5 @@
-import {v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
+import { encryptData, decryptData } from './EncryptAndDecrypt';
 
 function saveMoodData(
   selectedOption,
@@ -11,12 +12,12 @@ function saveMoodData(
   precipitation
 ) {
   const formattedDate = currentDate.replace(/\//g, '-');
-  
+
   const moodEntry = {
     id: uuidv4(),
     mood: selectedOption,
     reflection,
-    date: formattedDate, 
+    date: formattedDate,
     time: currentTime,
     temperature,
     humidity,
@@ -26,7 +27,8 @@ function saveMoodData(
 
   const existingData = JSON.parse(localStorage.getItem('moodEntries')) || [];
 
-  existingData.push(moodEntry);
+  const encryptedMoodEntry = encryptData(moodEntry);
+  existingData.push(encryptedMoodEntry);
 
   localStorage.setItem('moodEntries', JSON.stringify(existingData));
   console.log('Mood data saved:', localStorage.getItem('moodEntries'));

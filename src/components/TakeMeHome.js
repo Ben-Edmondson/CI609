@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import Home from '../pages/home';
 
 export default function TakeMeHome() {
     const navigate = useNavigate();
 
     const goToHomePage = () => {
-        navigate('/'); 
+        navigate('/home') 
     };
   
     return (

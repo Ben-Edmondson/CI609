@@ -4,22 +4,19 @@ import TakeMeHome from '../components/TakeMeHome';
 import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
 import { useParams } from 'react-router-dom';
+import { decryptData } from '../utilities/EncryptAndDecrypt';
 
 function DayPage() {
-  // Get the uuid parameter from the URL
   const { uuid } = useParams();
 
-  // Define a state variable to store the mood entry
   const [moodEntry, setMoodEntry] = useState(null);
 
   useEffect(() => {
-    // Retrieve data from localStorage
     const storedMoodEntries = JSON.parse(localStorage.getItem('moodEntries')) || [];
+    const decryptedMoodEntries = storedMoodEntries.map((entry) => decryptData(entry));
 
-    // Find the entry that matches the specified uuid
-    const matchingEntry = storedMoodEntries.find((entry) => entry.id === uuid);
+    const matchingEntry = decryptedMoodEntries.find((entry) => entry.id === uuid);
 
-    // Set the moodEntry state with the matching entry
     if (matchingEntry) {
       setMoodEntry(matchingEntry);
     }

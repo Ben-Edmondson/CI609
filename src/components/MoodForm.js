@@ -21,7 +21,6 @@ function MoodForm({ selectedOption, onOptionChange }) {
     const airQuality = "Good"; // Replace with actual air quality data
     const precipitation = "0.00 in"; // Replace with actual precipitation data
 
-    // Save all the data to localStorage
     saveMoodData(
       selectedOption,
       reflection,
