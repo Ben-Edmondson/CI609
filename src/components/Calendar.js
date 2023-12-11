@@ -3,18 +3,20 @@ import { useNavigate } from 'react-router-dom';
 
 function WeeklyCalendar() {
   const [moodData, setMoodData] = useState([]);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedMoodData = localStorage.getItem('moodEntries');
     if (storedMoodData) {
-      setMoodData(JSON.parse(storedMoodData));
+      const parsedMoodData = JSON.parse(storedMoodData);
+      const sortedMoodData = parsedMoodData.sort((a, b) => new Date(b.date) - new Date(a.date));
+      setMoodData(sortedMoodData);
     }
-  }, []); 
+  }, []);
 
   const handleArrowClick = (day) => {
     const selectedDate = day.date;
-    navigate(`/day/${selectedDate}`); 
+    navigate(`/day/${selectedDate}`);
   };
 
   return (
