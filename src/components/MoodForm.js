@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import saveMoodData from '../utilities/SaveMoodData';
 import { useNavigate } from 'react-router-dom';
 
 function MoodForm({ selectedOption, onOptionChange }) {
   const [reflection, setReflection] = useState('');
+  const [weatherData, setWeatherData] = useState(null); // State to store weather data
+
+  useEffect(() => {
+    // Retrieve the "weatherData" from localStorage
+    const storedWeatherData = localStorage.getItem('weatherData');
+
+    // Parse the stored JSON data (if it exists) and set it in state
+    if (storedWeatherData) {
+      setWeatherData(JSON.parse(storedWeatherData));
+    }
+  }, []);
 
   const handleReflectionChange = (e) => {
     setReflection(e.target.value);
@@ -16,10 +27,8 @@ function MoodForm({ selectedOption, onOptionChange }) {
 
     const currentDate = new Date().toLocaleDateString();
     const currentTime = new Date().toLocaleTimeString();
-    const temperature = "72°F"; // Replace with actual temperature data
-    const humidity = "50%"; // Replace with actual humidity data
-    const airQuality = "Good"; // Replace with actual air quality data
-    const precipitation = "0.00 in"; // Replace with actual precipitation data
+    const temperature = weatherData ? `${weatherData.main.temp}°F` : 'Unknown'; // Use weatherData if available, otherwise show 'Unknown'
+    const humidity = weatherData ? `${weatherData.main.humidity}%` : 'Unknown';
 
     saveMoodData(
       selectedOption,
@@ -28,8 +37,6 @@ function MoodForm({ selectedOption, onOptionChange }) {
       currentTime,
       temperature,
       humidity,
-      airQuality,
-      precipitation
     );
 
     onOptionChange(null);
@@ -67,17 +74,6 @@ function MoodForm({ selectedOption, onOptionChange }) {
                 className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300 resize-none h-40" // Adjust the height here
               ></textarea>
             </div>
-            <div className="mb-4 flex flex-col">
-            <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-60">Date:</label>
-              <input
-                type="text"
-                value={new Date().toLocaleDateString()}
-                readOnly
-                className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300"
-              />
-            </div>
-          </div>
           </div>
           <button
             type="submit"

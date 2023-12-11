@@ -9,7 +9,6 @@ function saveMoodData(
   temperature,
   humidity,
   airQuality,
-  precipitation
 ) {
   const formattedDate = currentDate.replace(/\//g, '-');
 
@@ -21,8 +20,6 @@ function saveMoodData(
     time: currentTime,
     temperature,
     humidity,
-    airQuality,
-    precipitation,
   };
 
   const existingData = JSON.parse(localStorage.getItem('moodEntries')) || [];

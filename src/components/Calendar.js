@@ -38,8 +38,6 @@ function WeeklyCalendar() {
                     <span className="w-1/2 sm:w-auto">Mood: {data.mood}</span>
                     <span className="w-1/2 sm:w-auto">Temp: {data.temperature}</span>
                     <span className="w-1/2 sm:w-auto">Humidity: {data.humidity}</span>
-                    <span className="w-1/2 sm:w-auto">Air Quality: {data.airQuality}</span>
-                    <span className="w-1/2 sm:w-auto">Precipitation: {data.precipitation}</span>
                     <div className="w-1/2 sm:w-auto flex justify-end">
                       <button
                         onClick={() => handleArrowClick(data)}

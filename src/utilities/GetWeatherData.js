@@ -3,15 +3,14 @@ import axios from "axios";
 
 async function fetchAndSaveWeatherData() {
     try {
-      const apiKey = '';
-  
+
       // Check the last execution date stored in local storage
       const lastExecutionDate = localStorage.getItem('lastWeatherFetchDate');
       const currentDate = new Date();
       
       if (!lastExecutionDate || (currentDate - new Date(lastExecutionDate)) >= 24 * 60 * 60 * 1000) {
         // Fetch weather data only if it hasn't been fetched today
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=50.8226&lon=-0.1370&exclude=hourly,minutely&units=metric&appid=${apiKey}`);
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=0d48caf05a49bc679526427f36f2542a`);
         
         // Handle the weather data
         const weatherData = response.data;
