@@ -14,7 +14,7 @@ function App() {
     <Route path="/logpage" element={<LogPage />} />
     <Route path="/Manage" element={<Manage />} />
     <Route path="/FAQ" element={<FAQ />} />
-    <Route path="/day/:date" element={<DayPage />} />
+    <Route path="/day/:uuid" element={<DayPage />} />
     <Route path="/*" element = {<Error />} />
     </Routes>
   );

@@ -1,3 +1,5 @@
+import {v4 as uuidv4 } from 'uuid'
+
 function saveMoodData(
   selectedOption,
   reflection,
@@ -11,9 +13,10 @@ function saveMoodData(
   const formattedDate = currentDate.replace(/\//g, '-');
   
   const moodEntry = {
+    id: uuidv4(),
     mood: selectedOption,
     reflection,
-    date: formattedDate, // Use the formatted date
+    date: formattedDate, 
     time: currentTime,
     temperature,
     humidity,

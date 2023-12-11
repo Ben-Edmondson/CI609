@@ -14,9 +14,9 @@ function WeeklyCalendar() {
     }
   }, []);
 
-  const handleArrowClick = (day) => {
-    const selectedDate = day.date;
-    navigate(`/day/${selectedDate}`);
+  const handleArrowClick = (entry) => {
+    const selectedUuid = entry.id; // Assuming the ID property is 'id'
+    navigate(`/day/${selectedUuid}`); // Update the URL to use uuid
   };
 
   return (

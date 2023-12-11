@@ -6,28 +6,29 @@ import PageWrapper from '../components/PageWrapper';
 import { useParams } from 'react-router-dom';
 
 function DayPage() {
-  const { date } = useParams();
+  // Get the uuid parameter from the URL
+  const { uuid } = useParams();
 
-  const [dayData, setDayData] = useState(null);
+  // Define a state variable to store the mood entry
+  const [moodEntry, setMoodEntry] = useState(null);
 
   useEffect(() => {
-    const storedMoodEntries = localStorage.getItem('moodEntries');
+    // Retrieve data from localStorage
+    const storedMoodEntries = JSON.parse(localStorage.getItem('moodEntries')) || [];
 
-    if (storedMoodEntries) {
-      const moodEntries = JSON.parse(storedMoodEntries);
+    // Find the entry that matches the specified uuid
+    const matchingEntry = storedMoodEntries.find((entry) => entry.id === uuid);
 
-      const matchingEntry = moodEntries.find((entry) => entry.date === date);
-
-      if (matchingEntry) {
-        setDayData(matchingEntry);
-      }
+    // Set the moodEntry state with the matching entry
+    if (matchingEntry) {
+      setMoodEntry(matchingEntry);
     }
-  }, [date]);
+  }, [uuid]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900">
       <Header />
-      {dayData ? <DayData {...dayData} /> : <div>No data found for this date</div>}
+      {moodEntry ? <DayData {...moodEntry} /> : <div>No data found for this date</div>}
       <TakeMeHome />
     </div>
   );
