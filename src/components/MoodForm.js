@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
-import saveMoodData from '../utilities/SaveMoodData'
+import saveMoodData from '../utilities/SaveMoodData';
 import { useNavigate } from 'react-router-dom';
 
 function MoodForm({ selectedOption, onOptionChange }) {
   const [reflection, setReflection] = useState('');
-  const currentDate = new Date();
-  const currentTime = currentDate.toLocaleTimeString();
-  const temperature = "72°F"; // Replace with actual temperature data
-  const humidity = "50%"; // Replace with actual humidity data
-  const airQuality = "Good"; // Replace with actual air quality data
-  const precipitation = "0.00 in"; // Replace with actual precipitation data
 
   const handleReflectionChange = (e) => {
     setReflection(e.target.value);
@@ -19,14 +13,14 @@ function MoodForm({ selectedOption, onOptionChange }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     const currentDate = new Date().toLocaleDateString();
     const currentTime = new Date().toLocaleTimeString();
     const temperature = "72°F"; // Replace with actual temperature data
     const humidity = "50%"; // Replace with actual humidity data
     const airQuality = "Good"; // Replace with actual air quality data
     const precipitation = "0.00 in"; // Replace with actual precipitation data
-  
+
     // Save all the data to localStorage
     saveMoodData(
       selectedOption,
@@ -38,8 +32,8 @@ function MoodForm({ selectedOption, onOptionChange }) {
       airQuality,
       precipitation
     );
-  
-    onOptionChange(null); 
+
+    onOptionChange(null);
     setReflection('');
 
     navigate('/manage');
@@ -74,72 +68,17 @@ function MoodForm({ selectedOption, onOptionChange }) {
                 className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300 resize-none h-40" // Adjust the height here
               ></textarea>
             </div>
-          </div>
-          <div className="mb-4 flex flex-col">
+            <div className="mb-4 flex flex-col">
             <div className="flex items-center">
               <label className="text-white text-lg font-semibold w-60">Date:</label>
               <input
                 type="text"
-                value={currentDate.toLocaleDateString()}
+                value={new Date().toLocaleDateString()}
                 readOnly
                 className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300"
               />
             </div>
           </div>
-          <div className="mb-4 flex flex-col">
-            <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-60">Time:</label>
-              <input
-                type="text"
-                value={currentTime}
-                readOnly
-                className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300"
-              />
-            </div>
-          </div>
-          <div className="mb-4 flex flex-col">
-            <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-60">Temperature:</label>
-              <input
-                type="text"
-                value={temperature}
-                readOnly
-                className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300"
-              />
-            </div>
-          </div>
-          <div className="mb-4 flex flex-col">
-            <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-60">Humidity:</label>
-              <input
-                type="text"
-                value={humidity}
-                readOnly
-                className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300"
-              />
-            </div>
-          </div>
-          <div className="mb-4 flex flex-col">
-            <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-60">Air Quality:</label>
-              <input
-                type="text"
-                value={airQuality}
-                readOnly
-                className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300"
-              />
-            </div>
-          </div>
-          <div className="mb-4 flex flex-col">
-            <div className="flex items-center">
-              <label className="text-white text-lg font-semibold w-60">Precipitation:</label>
-              <input
-                type="text"
-                value={precipitation}
-                readOnly
-                className="flex-grow px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring focus:border-indigo-300"
-              />
-            </div>
           </div>
           <button
             type="submit"
