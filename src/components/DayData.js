@@ -1,6 +1,12 @@
 import React from 'react';
+import ShareButton from './ShareButton';
 
 function DayData({ date, day, mood, temperature, humidity, reflection = "No Value" }) {
+  const shareData = {
+    title: `Mood Data: ${date}`,
+    text: `Mood: ${mood}\nTemperature: ${temperature}\nHumidity: ${humidity}\nReflection: ${reflection}`
+  };
+
   return (
     <div className="bg-gray-700 shadow rounded-lg p-6 my-4 text-white w-full">
       <div className="text-2xl font-bold mb-6">{date} - {day}</div>
@@ -22,6 +28,7 @@ function DayData({ date, day, mood, temperature, humidity, reflection = "No Valu
           <div className="data-value">{reflection}</div>
         </div>
       </div>
+      <ShareButton data={shareData} />
     </div>
   );
 }
