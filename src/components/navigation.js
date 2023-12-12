@@ -7,7 +7,7 @@ const links = [
 
 function Navigation() {
   return (
-    <div className="mt-10">
+<div className="mt-10 flex-1">
       <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
         {links.map((link) => (
           <Link className='mx-auto hover:underline cursor-pointer' to={link.to} key={link.name}>

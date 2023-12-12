@@ -10,7 +10,7 @@ function WeeklyCalendar() {
     const storedMoodData = localStorage.getItem('moodEntries');
     if (storedMoodData) {
       const encryptedMoodData = JSON.parse(storedMoodData);
-      const decryptedMoodData = encryptedMoodData.map((entry) => decryptData(entry)); // Decrypt each entry
+      const decryptedMoodData = encryptedMoodData.map((entry) => decryptData(entry)); 
       const sortedMoodData = decryptedMoodData.sort((a, b) => new Date(b.date) - new Date(a.date));
       setMoodData(sortedMoodData);
     }

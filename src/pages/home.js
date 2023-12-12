@@ -8,14 +8,14 @@ function Home(){
         <div className="text-center">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Mind: Mental Health Logger</h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            This is the home page for the Mind-Application.
+            Please Log a Mood, Or View existing entries
           </p>
         </div>
-        <div className="mt-10">
+        <div className="flex justify-center items-center mt-10">
           <Navigation />
           <Weather />
         </div>
-      </div>
+        </div>
     );
 }
 

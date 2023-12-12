@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { encryptData, decryptData } from './EncryptAndDecrypt';
+import { encryptData } from './EncryptAndDecrypt';
 
 function saveMoodData(
   selectedOption,
@@ -8,9 +8,10 @@ function saveMoodData(
   currentTime,
   temperature,
   humidity,
-  airQuality,
 ) {
   const formattedDate = currentDate.replace(/\//g, '-');
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const day = daysOfWeek[new Date().getDay()];
 
   const moodEntry = {
     id: uuidv4(),
@@ -20,6 +21,7 @@ function saveMoodData(
     time: currentTime,
     temperature,
     humidity,
+    day
   };
 
   const existingData = JSON.parse(localStorage.getItem('moodEntries')) || [];
