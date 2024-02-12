@@ -10,7 +10,7 @@ async function fetchAndSaveWeatherData() {
       
       if (!lastExecutionDate || (currentDate - new Date(lastExecutionDate)) >= 24 * 60 * 60 * 1000) {
         // Fetch weather data only if it hasn't been fetched today
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=`);
+        const response = await axios.get(`ADD YOUR OWN API KEY HERE`);
         
         // Handle the weather data
         const weatherData = response.data;
